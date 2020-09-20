@@ -1,0 +1,15 @@
+body {
+    background-color: #595b61ab;
+}
+
+.back {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    padding: 6px;
+    margin: 50px 200px 0px;
+    border: 1px solid rgba(117, 116, 116, 0.329)
+}

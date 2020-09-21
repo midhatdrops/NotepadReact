@@ -11,7 +11,8 @@ export default function App() {
   function Salvar() {
       window.localStorage.removeItem('notes')
       const text = document.querySelector('#note_text').value
-      const dia = Date.now()
+      if(text === '') return alert('Você não pode inserir dados vazios!')
+      const dia = Date(Date.now())
       let id = 0 
       notes.length === 0 ? id = 0 : id = notes.length
       const att = []
@@ -33,15 +34,18 @@ export default function App() {
     <>
     <div className="back">
       <div className="title">Notepad</div>
-      <br /><br/>
-  <ul>
-  {notes.map( note => (
+      <br /><br/> <div className="list">
+  {notes.map( function(note)  {
+    return(
+      <>
     <article key={note.id}>{note.text}</article>
-  )
-  )}</ul></div>
+    <article key={note.id} id="daynote">{note.dia.toLocaleString('pt-BR')}</article>
+    </>)})}</div>
+
+</div>
   <br /><br/>
   <div className="clickers">
-    <input id="note_text" type="text" placeholder="Digite o texto aqui"></input>
+    <textarea id="note_text" type="text" placeholder="Digite o texto aqui"></textarea>
     </div><br /><br />
     <div className="clickers">
       <div className="internclicker">

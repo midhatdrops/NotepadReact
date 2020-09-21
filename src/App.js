@@ -30,17 +30,26 @@ export default function App() {
 
 
   return (
+    <>
     <div className="back">
+      <div className="title">Notepad</div>
+      <br /><br/>
   <ul>
   {notes.map( note => (
-    <li key={note.dia}>{note.text}</li>
+    <article key={note.id}>{note.text}</article>
   )
-  )}
-    <input id="note_text"></input>
+  )}</ul></div>
+  <br /><br/>
+  <div className="clickers">
+    <input id="note_text" type="text" placeholder="Digite o texto aqui"></input>
+    </div><br /><br />
+    <div className="clickers">
+      <div className="internclicker">
     <button onClick={() => Salvar()}>Salvar</button>
     <button onClick={() => Delete()}>Deletar</button>
-  </ul>
     </div>
+    </div>
+    </>
   );
 }
 

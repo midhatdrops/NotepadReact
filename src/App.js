@@ -27,6 +27,14 @@ export default function App() {
       setNotes([])
       return console.log('Local storage deletado')
     }
+
+    function filtro(id) {
+      const novofiltro  = notes.filter( (elem) => {
+          return elem.id !== id
+  }
+      )
+      return setNotes(novofiltro)
+  }
   
 
 
@@ -38,8 +46,9 @@ export default function App() {
   {notes.map( function(note)  {
     return(
       <>
-    <article key={note.id}>{note.text}</article>
-    <article key={note.id} id="daynote">{note.dia.toLocaleString('pt-BR')}</article>
+    <article key={note.text}>{note.text}</article>
+    <article key={note.dia} id="daynote">{note.dia.toLocaleString('pt-BR')}</article>
+    <button key={note.id} id="teste" onClick={() => filtro(note.id)}>Deletar</button>
     </>)})}</div>
 
 </div>
